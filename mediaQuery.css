@@ -1,0 +1,93 @@
+@media screen and (min-width: 10px) and (max-width: 600px){
+    body{
+        position: relative;
+    }
+
+    /*BOTÃO*/
+    header nav button{
+        font-weight: bold;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        border: none;
+        font-size: 1rem;
+        background: none;
+        cursor: pointer;
+    }
+    /*TUDO RELATIVO AO HAMBURGUER*/
+    #hamburguer{
+        width: 20px;
+        border-top: 2px solid;
+    }
+
+    #hamburguer::after{
+        content: '';
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        display: block;   
+        margin-top: 5px;     
+        position: relative;
+    }
+
+    #hamburguer::before{
+        content: '';
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        display: block;      
+        margin-top: 5px;  
+        position: relative;
+    }
+
+    header nav.active #hamburguer{
+        border-top-color: transparent;
+    }
+
+    header nav.active #hamburguer::after{
+        transform: rotate(135deg);
+        transition: 0.4s;
+        top: -7px;
+    }
+    header nav.active #hamburguer::before{
+        transform: rotate(-135deg);
+        transition: 0.4s;
+
+    }
+    /*FIM HAMBURGUER*/
+    
+    header nav ul{
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    top: 90px;
+    left: 0;
+    background-color: darkgray;
+    z-index: 1000;
+    transition: 0.4s;
+    overflow: hidden;
+    height: 0;
+    }
+
+    header nav.active ul{
+        visibility: visible;
+        display: block;
+        height: calc(100vh - 90px);
+        overflow-y: auto;
+    }
+
+    header nav.active ul a:hover{
+        background-color: #8c8686;
+        color: white;
+        padding-left: 24px;
+    }
+
+    header ul a{
+        display: block;
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 1px solid black;
+        color: rgb(21, 18, 18);
+    }
+}
